@@ -9,14 +9,61 @@ output: html_document
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
-## R Markdown
 
-This is an R Markdown document. Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. For more details on using R Markdown see <http://rmarkdown.rstudio.com>.
+```{r}
+# library(ndjson)
+# business <- stream_in("business.json")
+# names(business)
+# str(business)
+# 
+# checkin <- stream_in("checkin.json")
+# names(checkin)
+# str(checkin)
+# 
+# tip <- stream_in("tip.json")
+# names(tip)
+# str(tip)
+# 
+# user <- stream_in("user.json")
+# names(user)
+# str(user)
+# 
+# library(rjson)
+# path <- "review.json"
+# c <- file(path, "r")
+# l <- readLines(c, 1000)
+# json <- lapply(X=l, fromJSON)
+# review <- data.frame(matrix(unlist(json), nrow=1000, byrow=TRUE))
+# names(review) <- c("review_id", "user_id", "business_id", "stars", "useful", "funny", "cool", "text", "date")
+# str(review)
+# 
+# # Save data into RData
+# save(business, checkin, tip, user, review, file = "yelpdata.RData")
+# 
+# saveRDS(business, file="business.RDS")
+# saveRDS(checkin, file="checkin.RDS")
+# saveRDS(review, file="review.RDS")
+# saveRDS(tip, file="tip.RDS")
+# saveRDS(user, file="user.RDS")
 
-When you click the **Knit** button a document will be generated that includes both content as well as the output of any embedded R code chunks within the document. You can embed an R code chunk like this:
 
-```{r cars}
-summary(cars)
+ 
+#Discover you Data what is look like?
+library(dplyr) #data manipulation
+library(ggplot2) #visualizations
+library(gridExtra) #viewing multiple plots together
+#install.packages("tidytext")
+library(tidytext) #text mining
+#install.packages("wordcloud2")
+library(wordcloud2) #creative visualizations
+
+head(business)
+head(tip)
+head(review)
+length(unique(business$business_id))
+length(unique(tip$business_id))
+length(unique(review$business_id))
+
 ```
 
 ## Including Plots
