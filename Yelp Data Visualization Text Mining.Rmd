@@ -54,11 +54,13 @@ library(ggplot2) #visualizations
 library(gridExtra) #viewing multiple plots together
 #install.packages("tidytext")
 library(tidytext) #text mining
-#install.packages("wordcloud2")
-library(wordcloud2) #creative visualizations
+
+business <- readRDS("business.RDS")
+str(business)
+review <- readRDS("review.RDS")
+str(review)
 
 head(business)
-head(tip)
 head(review)
 length(unique(business$business_id))
 length(unique(tip$business_id))
